@@ -1,8 +1,8 @@
 export class appController {
-    #guiController;
-
-    setGuiController(controladorDeInterface) {
-        this.#guiController = controladorDeInterface;
+    setGuiController(guiCtrlInstance) {
+        console.log("appController.js is working.")
+        this.guiCtrl = guiCtrlInstance;
+        this.guiCtrl.buildGui();
     }
 
 }

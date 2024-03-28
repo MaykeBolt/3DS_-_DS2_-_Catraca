@@ -1,25 +1,10 @@
+import { Drawer } from "../gui/Drawer.js";
+
 export class guiController {
-    #btnToggleDrawer
-    #menuDrawer
+    #drawer
     
-    constructor() {
-        this.#btnToggleDrawer = document.getElementById("btnToggleDrawer");
-        this.#menuDrawer = document.getElementById("menuDrawer");
-
-        this.#btnToggleDrawer.addEventListener(
-            "click",
-            ()=>{
-                if (document.getElementById("menuDrawer").style.display == "") {
-                    document.getElementById("menuDrawer").style.display = "block";
-                    return;
-                }
-
-                if (document.getElementById("menuDrawer").style.display == "none") {
-                    document.getElementById("menuDrawer").style.display = "block";
-                } else {
-                    document.getElementById("menuDrawer").style.display = "none";
-                }
-            }
-        )
+    buildGui() {
+        this.#drawer = new Drawer("menuDrawer", "btnToggleDrawer");
+        
     }
 }

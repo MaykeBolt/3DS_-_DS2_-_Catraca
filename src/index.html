@@ -55,12 +55,12 @@
         <br>
           <div class="container">
             {{ #menuItens }}
+            <a href="{{ link }}">
               <button type="button" class="btn btn-primary w-100" data-action="{{ action }}"
                   onclick="window.app.guiCtrl.execDrawerMenuItemAction(this, '{{action}}');">
-                  
-                    {{ label }}
-                  
+                    {{ label }}    
               </button>
+            </a>  
               <hr>
             {{ /menuItens }}
           </div>

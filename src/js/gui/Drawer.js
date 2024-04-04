@@ -8,13 +8,13 @@ export class Drawer {
             label: "Login",
             elmId: "drawerMenuItem_Login",
             action: "open_view_login",
-            //link: ""
+            link: "../../components/login.html"
         },
         {
             label: "Registrar",
             elmId: "drawerMenuItem_Register",
             action: "open_view_register",
-            //link: ""
+            link: "./"
         }
     ]
 

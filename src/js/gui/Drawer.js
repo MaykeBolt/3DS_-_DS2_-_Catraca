@@ -6,7 +6,7 @@ export class Drawer {
         this.drawerProp = document.getElementById(drawerId);
         this.drawerProp.style.display = "none";
         this.btnToggleDrawerProp = document.getElementById(btnId);
-        this.btnToggleDrawerProp.addEventListener('click', () => {this.toggleDrawer});
+        this.btnToggleDrawerProp.addEventListener('click', () => {this.toggleDrawer()});
     }
 
     #openDrawer() {
@@ -19,9 +19,9 @@ export class Drawer {
 
     toggleDrawer() {
         if(this.drawerProp.style.display === "none") {
-            this.#openDrawer;
+            this.#openDrawer();
         } else {
-            this.#closeDrawer;
+            this.#closeDrawer();
         }
     }
 }

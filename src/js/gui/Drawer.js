@@ -14,7 +14,7 @@ export class Drawer {
             label: "Registrar",
             elmId: "drawerMenuItem_Register",
             action: "open_view_register",
-            link: "./"
+            link: "../../components/register.html"
         }
     ]
 

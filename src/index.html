@@ -43,39 +43,29 @@
 </div>
 
   <div id="menuDrawer" class="drawer container border border-primary-subtle rounded-end">
-    <div class="container border border-primary-subtle rounded-end">    
-      <div class="row justify-content-center">
-        <div class="col-12 col-md-6 text-center py-3">
-          <h1 class="text-white">MENU PRINCIPAL</h1>
+    <script id="DrawerMenuTemplate" type="text/template">
+      <div class="container border border-primary-subtle rounded-end">    
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-6 text-center py-3">
+            <h1 class="text-white">MENU PRINCIPAL</h1>
+          </div>
         </div>
       </div>
-    </div>
-    <div>
-      <br>
-        <div class="container">
-            <button type="button" class="btn btn-primary w-100" data-action="acao1"
-                onclick="">
-                  Botão 1
-            </button>
-            <hr>
-            <button type="button" class="btn btn-primary w-100" data-action="acao1"
-                onclick="">
-                  Botão 2
-            </button>
-            <hr>
-            <button type="button" class="btn btn-primary w-100" data-action="acao1"
-                onclick="">
-                  Botão 3
-            </button>
-            <hr>
-            <button type="button" class="btn btn-primary w-100" data-action="acao1"
-                onclick="">
-                  Botão 4
-            </button>
-            <hr>
-
-        </div>
-    </div>
+      <div>
+        <br>
+          <div class="container">
+            {{ #menuItens }}
+              <button type="button" class="btn btn-primary w-100" data-action="{{ action }}"
+                  onclick="window.app.guiCtrl.execDrawerMenuItemAction(this, '{{action}}');">
+                  
+                    {{ label }}
+                  
+              </button>
+              <hr>
+            {{ /menuItens }}
+          </div>
+      </div>
+    </script>
   </div>
 </body>
 <!---------------------------------------------------------------------------------------------------------------->

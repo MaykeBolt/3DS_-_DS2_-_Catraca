@@ -6,15 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/login.css">
+    <!-- <script src="../js/View/loginView.js"></script> -->
 </head>
 <body>
     <div>
         <h1>Login</h1>
-        <input type="text" placeholder="Email">
+        <input type="text" placeholder="Email" id="email">
         <br><br>
-        <input type="password" placeholder="Senha">
+        <input type="password" placeholder="Senha" id="senha">
         <br><br>
-        <button>Enviar</button>
+        <button id="btnLogin">Enviar</button>
     </div>
+    <script type="module">
+        // Importe a classe AuthController do seu módulo
+        import AuthController from "../js/Controllers/firebase/AuthFirebaseController.js";
+
+        const authController = new AuthController();
+
+        document.getElementById("btnLogin").addEventListener("click", function() {
+            authController.autenticarUsuario();
+            console.log('Processando Login');
+        });
+    </script>
 </body>
 </html>

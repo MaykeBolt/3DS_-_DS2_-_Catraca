@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/gui.css">
     <link rel="stylesheet" href="../css/login.css">
     <!-- <script src="../js/View/loginView.js"></script> -->
-
+    <script src="../js/View/loginView.js"></script>i
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     
 </head>
@@ -45,22 +45,11 @@
         <br><br>
         <button id="btnLogin">Enviar</button>
     </div>
-    <script type="module">
-        // Importe a classe AuthController do seu módulo
-        import AuthController from "../js/Controllers/firebase/AuthFirebaseController.js";
-
-        const authController = new AuthController();
-
-        document.getElementById("btnLogin").addEventListener("click", function() {
-            authController.autenticarUsuario();
-            console.log('Processando Login');
-        });
-    </script>
         <input class="login_input" type="text" placeholder="Email">
         <br><br>
         <input class="login_input" type="password" placeholder="Senha">
         <br><br>
-        <button class="login_btn">Enviar</button>
+        <button class="btnLogin">Enviar</button>
     </div>
 
     <div id="menuDrawer" class="drawer container border border-primary-subtle rounded-end">

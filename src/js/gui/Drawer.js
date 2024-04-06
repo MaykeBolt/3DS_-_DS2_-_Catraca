@@ -27,8 +27,19 @@ export class Drawer {
 
     render() {
         const template = document.getElementById("DrawerMenuTemplate").innerHTML;
+        if (window.location.pathname === "/components/login.html") {
+            this.drawerMenuItens[0] = {label: "Voltar a página inicial",
+            elmId: "drawerMenuItem_Index",
+            action: "open_view_index",
+            link: "../index.html"}
+        } else if (window.location.pathname === "/components/register.html") {
+            this.drawerMenuItens[1] = {label: "Voltar a página inicial",
+            elmId: "drawerMenuItem_Index",
+            action: "open_view_index",
+            link: "../index.html"}
+        }
         const renderedMenu = mustache.render(template, {menuItens: this.drawerMenuItens});
-        this.drawerProp.innerHTML = renderedMenu
+        this.drawerProp.innerHTML = renderedMenu;
     }
 
     #openDrawer() {

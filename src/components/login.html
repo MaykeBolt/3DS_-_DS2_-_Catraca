@@ -23,19 +23,16 @@
 </script> 
 
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <div>
-            <button id="btnToggleDrawer" class="navbar-toggler mx-2" type="button">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="navbar-brand" href="#">EtecZl</a>
-        </div>
-        <div id="installPwaWebAPP"></div>
-        <div id="user_identification_div" class="d-flex mx-3">
-          <i class="bi bi-person-circle mx-2"></i>
-          <a class="nav-link" href="#">User Name</a>
-        </div>
-      </nav>
+  <nav class="navbar etecnav">
+    <div>
+        <button id="btnToggleDrawer" class="navbar-toggler mx-2" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img src="../public/icons/logo-etec.png" alt="bruh" class="logo" width="80px" height="auto">
+        </a>
+    </div>
+  </nav>
 
     <div class="login_div">
         <h1>Login</h1>
@@ -46,30 +43,30 @@
         <button class="btnLogin">Enviar</button>
     </div>
 
-    <div id="menuDrawer" class="drawer container border border-primary-subtle rounded-end">
-        <script id="DrawerMenuTemplate" type="text/template">
-          <div class="container border border-primary-subtle rounded-end">    
-            <div class="row justify-content-center">
-              <div class="col-12 col-md-6 text-center py-3">
-                <h1 class="text-white">MENU PRINCIPAL</h1>
-              </div>
+    <div id="menuDrawer" class="drawer container rounded-end">
+      <script id="DrawerMenuTemplate" type="text/template">
+        <div class="container drawermaintext rounded-end">    
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-6 text-center py-3">
+              <h1 class="text-white maintext">MENU PRINCIPAL</h1>
             </div>
           </div>
-          <div>
-            <br>
-              <div class="container">
-                {{ #menuItens }}
-                <a href="{{ link }}">
-                  <button type="button" class="btn btn-primary w-100" data-action="{{ action }}"
-                      onclick="window.app.guiCtrl.execDrawerMenuItemAction(this, '{{action}}');">
-                        {{ label }}    
-                  </button>
-                </a>  
-                  <hr>
-                {{ /menuItens }}
-              </div>
-          </div>
-        </script>
-      </div>
+        </div>
+        <div>
+          <br>
+            <div class="container">
+              {{ #menuItens }}
+              <a href="{{ link }}" class="row justify-content-center">
+                <button type="button" class="btn btn-dark w-50" data-action="{{ action }}"
+                    onclick="window.app.guiCtrl.execDrawerMenuItemAction(this, '{{action}}');">
+                      {{ label }}    
+                </button>
+              </a>  
+                <hr>
+              {{ /menuItens }}
+            </div>
+        </div>
+      </script>
+    </div>
 </body>
 </html>

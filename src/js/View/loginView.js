@@ -1,8 +1,14 @@
-import AuthController from "../Controllers/firebase/AuthFirebaseController";
-
+import { AuthController } from "../Controllers/firebase/AuthFirebaseController.js";
 const authController = new AuthController()
 
-document.getElementById("btnLogin").addEventListener("click", function() {
-    authController.autenticarUsuario()
-    console.log('Processando Login')
-});
+
+    function login(){  
+        document.getElementById("btnLogin").addEventListener("click", function() {
+            try {
+                authController.autenticarUsuario();
+            } catch (error) {
+                console.error('Erro durante a autenticação do usuário:', error);
+            }
+        });
+}
+export{login}

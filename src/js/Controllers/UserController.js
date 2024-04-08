@@ -1,4 +1,4 @@
-import { Auth } from "./firebase/fbInitializeApp";
+import { Auth } from "./firebase/fbInitializeApp.js";
 
 export class UserController{
 

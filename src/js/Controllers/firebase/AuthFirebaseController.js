@@ -1,5 +1,5 @@
-import { UserController } from "../UserController";
-import { Auth } from "./fbInitializeApp.ja";
+import { UserController } from "../UserController.js";
+import { Auth } from "./fbInitializeApp.js";
 
  class AuthController {
   userController;
@@ -19,8 +19,8 @@ import { Auth } from "./fbInitializeApp.ja";
     const senhaVal = await this.userController.verificarSenhaForte(senha);
 
     if (emailVal || senhaVal === false) {
-      alert("Email e/ou senha incorretos");
-      return;
+      alert("Email e/ou senha inválidos");
+      throw new Error('Email e/ou senha inválidos');
     }
     this.auth
       .createUser({
@@ -30,30 +30,29 @@ import { Auth } from "./fbInitializeApp.ja";
         displayName: nome,
       })
       .then((userRecord) => {
-        console.log("Successfully created new user:", userRecord.uid);
+        console.log("Usuário Criado com sucesso:", userRecord.uid);
       })
       .catch((error) => {
-        console.log("Error creating new user:", error);
+        console.log("Erro ao criar o usuário:", error);
+        return false
       });
   }
   async autenticarUsuario() {
     console.log('Login iniciado')
     let email = document.getElementById("email").value;
     let senha = document.getElementById("senha").value;
-    if (emailVal || senhaVal === false) {
-      alert("Email e/ou senha incorretos");
-      return;
-    }
     this.auth
       .signInWithEmailAndPassword(email, senha)
       .then(function (userCredential) {
         const user = userCredential.user;
         console.log("Login bem sucedido! Bem-vindo, " + user.email);
+        return true
       })
       .catch(function (error) {
         const errorCode = error.code;
         const errorMessage = error.message;
         alert("Erro ao autenticar o usuário: " + errorMessage + errorCode);
+        return false
       });
   }
 
@@ -76,4 +75,4 @@ import { Auth } from "./fbInitializeApp.ja";
   }
 }
 
-export default AuthController
+export{AuthController}

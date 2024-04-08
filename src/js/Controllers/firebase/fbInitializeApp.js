@@ -20,12 +20,12 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js"
     
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
-import { firebaseConfig } from "./fbConfig";
+import { firebaseConfig } from "./fbConfig.js";
 
-const App = initializeApp(firebaseConfig)
+const App = initializeApp(firebaseConfig);
 
-const Auth = getAuth(App)
+const Auth = getAuth(App);
 
-const Firestore = getFirestore(App)
+// const Firestore = getFirestore();
 
-export{App, Auth, Firestore}
+export{App, Auth}

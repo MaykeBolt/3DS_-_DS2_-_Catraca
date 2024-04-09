@@ -1,6 +1,8 @@
 import { UserController } from "../UserController.js";
 import { Auth } from "./fbInitializeApp.js";
 
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+
  class AuthController {
   userController;
   auth;
@@ -18,41 +20,39 @@ import { Auth } from "./fbInitializeApp.js";
     const emailVal = await this.userController.validarEmail(email);
     const senhaVal = await this.userController.verificarSenhaForte(senha);
 
-    if (emailVal || senhaVal === false) {
+    if (!emailVal || !senhaVal) {
       alert("Email e/ou senha inválidos");
       throw new Error('Email e/ou senha inválidos');
     }
-    this.auth
-      .createUser({
-        email: email,
-        emailVerified: false,
-        senha: senha,
-        displayName: nome,
-      })
+    createUserWithEmailAndPassword(this.auth, email, senha)
       .then((userRecord) => {
         console.log("Usuário Criado com sucesso:", userRecord.uid);
+        setTimeout(function(){
+          window.location.href = "/"
+        }, 500)
       })
       .catch((error) => {
         console.log("Erro ao criar o usuário:", error);
-        return false
+        
       });
   }
   async autenticarUsuario() {
     console.log('Login iniciado')
     let email = document.getElementById("email").value;
     let senha = document.getElementById("senha").value;
-    this.auth
-      .signInWithEmailAndPassword(email, senha)
+    signInWithEmailAndPassword(this.auth, email, senha)
       .then(function (userCredential) {
         const user = userCredential.user;
         console.log("Login bem sucedido! Bem-vindo, " + user.email);
-        return true
+        setTimeout(function(){
+          window.location.href = "/"
+        }, 500)
       })
       .catch(function (error) {
         const errorCode = error.code;
         const errorMessage = error.message;
         alert("Erro ao autenticar o usuário: " + errorMessage + errorCode);
-        return false
+        
       });
   }
 

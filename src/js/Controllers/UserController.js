@@ -6,12 +6,12 @@ export class UserController{
         // Expressão regular para validar um email
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const validation = regex.test(email);
-        if(validation){
-            return true
-        } else {
+        if(!validation){ 
             window.alert('Este email não é válido')
             return false
-        }
+        } 
+        console.log('Este email é válido')
+        return true
     }
     verificarSenhaForte(senha) {
         // Verifica se a senha tem pelo menos 8 caracteres
@@ -46,6 +46,7 @@ export class UserController{
         }
     
         // Se a senha passar por todas as verificações, consideramos ela forte
+        console.log('Esta senha é válida')
         return true;
     }
     showCurrentUser(){

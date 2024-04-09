@@ -3,10 +3,20 @@
     position: fixed;
     z-index: 1;
     left: 0;
-    top: 56px; /* drawer abaixo do navbarr */
-    width: 80%;
+    top: 4.9rem; /* drawer abaixo do navbarr */
+    width: 40%;
     height: calc(100% - 56px); /* a altura do navbar influencia pro drawer aparecer abaixo */
     overflow: auto;
-    background-color: gray; /*rgb(0,0,0);*/    
+    background-image: linear-gradient(to bottom right, rgb(145, 20, 20), rgb(109, 27, 27), rgb(145, 20, 20)); /*rgb(0,0,0);*/    
     padding-top: 60px;
+    border-right: solid 2px black ;
+    border-top: solid 2px black ;    
+}
+
+.drawermaintext {
+    background-color: rgb(83, 19, 19);
+}
+
+.maintext{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
